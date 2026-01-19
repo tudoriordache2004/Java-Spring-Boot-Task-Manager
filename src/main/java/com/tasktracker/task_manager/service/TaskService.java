@@ -18,9 +18,10 @@ public class TaskService {
     }
 
     public Task saveTask(Task task) {
-        if (task.getId() == null) {
-            task.setCompleted(false);
-        }
         return taskRepository.save(task);
+    }
+
+    public List<Task> getPendingTasks() {
+        return taskRepository.findByCompletedFalse();
     }
 }

@@ -23,4 +23,9 @@ public class TaskController {
     public Task createTask(@RequestBody Task task) {
         return taskService.saveTask(task);
     }
+
+    @GetMapping("/pending")
+    public List<Task> getPendingTasks() {
+        return taskService.getPendingTasks();
+    }
 }
