@@ -1,0 +1,26 @@
+package com.tasktracker.task_manager.controller;
+
+import com.tasktracker.task_manager.model.Task;
+import com.tasktracker.task_manager.service.TaskService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/tasks")
+@RequiredArgsConstructor
+public class TaskController {
+
+    private final TaskService taskService;
+
+    @GetMapping
+    public List<Task> getAllTasks() {
+        return taskService.getAllTasks();
+    }
+
+    @PostMapping
+    public Task createTask(@RequestBody Task task) {
+        return taskService.saveTask(task);
+    }
+}

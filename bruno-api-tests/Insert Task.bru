@@ -1,0 +1,15 @@
+meta {
+  name: Insert Task
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/tasks
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
